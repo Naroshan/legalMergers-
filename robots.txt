@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://legalmergers.co.uk/sitemap.xml
