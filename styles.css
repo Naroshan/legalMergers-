@@ -386,3 +386,9 @@ html{scroll-padding-top:100px}
 }
 .bubble-top .avail{font-style:normal}
 @media (max-width:600px){.bubble-top .avail{display:none}}
+
+.article.single{grid-template-columns:minmax(0,760px)}
+.prose a{color:var(--blue);font-weight:600}
+.prose strong{color:var(--ink)}
+.small a{color:inherit;text-decoration:underline}
+footer .bottom a{color:inherit;text-decoration:underline}
