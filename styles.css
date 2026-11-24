@@ -317,3 +317,8 @@ footer .bottom{border-top:1px solid rgba(255,255,255,.08);padding:22px 0;font-si
   .bubble-msg{font-size:14.5px;padding:10px 12px;margin-bottom:10px}
 }
 @media (prefers-reduced-motion:reduce){.bubble{transition:opacity .2s}.bubble.show .bubble-msg,.bubble.show .bubble-btn svg{animation:none}}
+
+/* hero kicker (replaces pill badge) */
+.kicker{display:flex;align-items:center;gap:14px;font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-size:22px;line-height:1.2;color:rgba(255,255,255,.88);margin-bottom:18px;letter-spacing:.005em}
+.kicker .line{width:44px;height:1px;background:var(--amber);flex:none}
+@media (max-width:600px){.kicker{font-size:18.5px;gap:12px;margin-bottom:12px}.kicker .line{width:30px}}
