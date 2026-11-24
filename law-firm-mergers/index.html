@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css?v=8">
+<link rel="stylesheet" href="/styles.css?v=9">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","@id":"https://legalmergers.co.uk/#org","name":"Legal Mergers","url":"https://legalmergers.co.uk/","image":"https://legalmergers.co.uk/og.png","email":"info@legalmergers.co.uk","description":"Confidential law firm sales, mergers, acquisitions, valuations and succession advice for UK law firms, plus specialist legal recruitment.","areaServed":{"@type":"Country","name":"United Kingdom"},"knowsAbout":["Law firm sales","Law firm mergers","Law firm acquisitions","Law firm valuation","Succession planning","Legal recruitment"],"openingHours":"Mo-Fr 09:00-17:00"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Mergers","serviceType":"Law firm mergers","description":"Specialist advice on law firm mergers in the UK: finding a partner firm with the right culture and practice areas, structuring the deal and planning integration.","provider":{"@id":"https://legalmergers.co.uk/#org"},"areaServed":{"@type":"Country","name":"United Kingdom"},"url":"https://legalmergers.co.uk/law-firm-mergers/"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://legalmergers.co.uk/"},{"@type":"ListItem","position":2,"name":"Mergers","item":"https://legalmergers.co.uk/law-firm-mergers/"}]}</script>
@@ -127,10 +127,10 @@
   <button class="bubble-x" type="button" aria-label="Close">×</button>
   <div class="bubble-top">
     <span class="bubble-av">AR<i></i></span>
-    <div><strong>Adam Reeve</strong><span>Head of Legal · Available today</span></div>
+    <div><strong>Adam Reeve</strong><span>Head of Legal<em class="avail"> · Available today</em></span></div>
   </div>
   <p class="bubble-msg">Call <b>Adam Reeve</b>, our Head of Legal, today!</p>
-  <a class="bubble-btn" id="callBtn" href="#contact"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg><span>Call Adam today</span></a>
+  <a class="bubble-btn" id="callBtn" href="#contact" aria-label="Call Adam Reeve today"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg><span>Call Adam today</span></a>
   <a class="bubble-mail" href="mailto:adam@legalmergers.co.uk">or email adam@legalmergers.co.uk</a>
 </div>
 <footer>
@@ -170,9 +170,16 @@
     if(PHONE){btn.href='tel:'+PHONE.replace(/[^0-9+]/g,'');btn.querySelector('span').textContent='Call '+PHONE;}
     var closed=false;try{closed=sessionStorage.getItem('lmBubble')==='x'}catch(e){}
     bub.hidden=false;
-    function chk(){if(!closed&&window.scrollY>320)bub.classList.add('show')}
+    var nearEnd=false;
+    function chk(){bub.classList.toggle('show',!closed&&!nearEnd&&window.scrollY>320)}
+    if('IntersectionObserver' in window){
+      var seen=new Set();
+      var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)seen.add(e.target);else seen.delete(e.target)});nearEnd=seen.size>0;chk()},{threshold:0.05});
+      ['contact','register'].forEach(function(id){var el=document.getElementById(id);if(el)io2.observe(el)});
+      var ft=document.querySelector('footer');if(ft)io2.observe(ft);
+    }
     window.addEventListener('scroll',chk,{passive:true});chk();
-    bub.querySelector('.bubble-x').addEventListener('click',function(){closed=true;bub.classList.remove('show');try{sessionStorage.setItem('lmBubble','x')}catch(e){}});
+    bub.querySelector('.bubble-x').addEventListener('click',function(){closed=true;chk();try{sessionStorage.setItem('lmBubble','x')}catch(e){}});
   }
   var els=document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window){

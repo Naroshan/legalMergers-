@@ -361,3 +361,28 @@ footer .bottom{border-top:1px solid rgba(255,255,255,.08);padding:22px 0;font-si
 .bubble-mail:hover{color:var(--blue)}
 .side-mail{display:block;text-align:center;margin-top:12px;font-size:14px;font-weight:600;color:rgba(255,255,255,.75);text-decoration:none}
 .side-mail:hover{color:var(--amber)}
+
+/* ---------- mobile fixes ---------- */
+html{scroll-padding-top:100px}
+@media (max-width:600px){
+  input,select,textarea{font-size:16px}
+  /* compact call bar */
+  .bubble{left:10px;right:10px;bottom:10px;width:auto;padding:10px 10px 10px 12px;border-radius:20px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px}
+  .bubble-top{margin:0;padding:0;gap:10px}
+  .bubble-av{width:42px;height:42px}
+  .bubble-top strong{font-size:15px}
+  .bubble-msg,.bubble-mail{display:none}
+  .bubble-btn{width:50px;height:50px;padding:0;border-radius:50%}
+  .bubble-btn span{display:none}
+  .bubble-btn svg{width:22px;height:22px}
+  .bubble-x{top:-12px;right:-4px;width:32px;height:32px;background:#fff;border:1px solid var(--line);box-shadow:0 4px 12px rgba(7,15,36,.15)}
+  /* tap targets */
+  footer ul{gap:2px}
+  footer li a{display:inline-block;padding:8px 0}
+  footer .bottom{padding-bottom:90px}
+  .crumbs a{display:inline-block;padding:6px 0}
+  .side-card .btn{font-size:14.5px;padding:14px 16px}
+  .tile .more{padding-top:18px}
+}
+.bubble-top .avail{font-style:normal}
+@media (max-width:600px){.bubble-top .avail{display:none}}
