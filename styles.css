@@ -413,3 +413,16 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 .social-li:hover span{color:var(--amber)}
 .cinfo .ic.li{background:#0a66c2}
 .cinfo .ic.li svg{fill:currentColor;stroke:none;color:#fff}
+
+/* recruitment SEO pages */
+.prose h3{font-size:20px;margin:26px 0 6px}
+.side-tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);background:#eef3ff;border-radius:999px;padding:6px 12px;margin-bottom:14px}
+.side-tag.emp{color:#9a5b00;background:#fff4e0}
+.emp-block{margin-top:56px;padding-top:48px;border-top:1px solid var(--line)}
+.role-links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.role-links a{display:flex;justify-content:space-between;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:var(--r-md);padding:20px 22px;text-decoration:none;color:var(--ink);transition:border-color .2s,transform .2s}
+.role-links a:hover{border-color:var(--blue);transform:translateY(-2px)}
+.role-links strong{font-size:17px}
+.role-links span{color:var(--blue);font-weight:700}
+@media (max-width:600px){.role-links{grid-template-columns:1fr}.role-links a{padding:16px 18px}}
+.prose .side-tag + h2{margin-top:0}
