@@ -392,3 +392,7 @@ html{scroll-padding-top:100px}
 .prose strong{color:var(--ink)}
 .small a{color:inherit;text-decoration:underline}
 footer .bottom a{color:inherit;text-decoration:underline}
+
+footer .legal{border-top:1px solid rgba(255,255,255,.08);padding:22px 0 4px}
+footer .legal p{font-size:13px;line-height:1.6;color:rgba(255,255,255,.55);max-width:900px}
+footer .legal + .bottom{border-top:0;padding-top:10px}
