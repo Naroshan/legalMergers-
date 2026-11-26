@@ -231,14 +231,14 @@ form.enq .btn{justify-content:center;margin-top:4px}
 
 /* footer */
 footer{background:var(--navy);color:rgba(255,255,255,.6);font-size:14.5px;margin-top:110px}
-footer .cols{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:40px;padding:72px 0 48px}
+footer .cols{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:40px;padding-top:72px;padding-bottom:48px}
 footer h4{color:#fff;font-size:14px;letter-spacing:0;margin-bottom:16px}
 footer ul{list-style:none;display:grid;gap:10px}
 footer a{color:rgba(255,255,255,.75);text-decoration:none;transition:color .2s}
 footer a:hover{color:var(--amber)}
 footer .logo{margin-bottom:16px}
 footer .about{max-width:320px}
-footer .bottom{border-top:1px solid rgba(255,255,255,.08);padding:22px 0;font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer .bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;padding-bottom:22px;font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 /* reveal */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
@@ -393,6 +393,15 @@ html{scroll-padding-top:100px}
 .small a{color:inherit;text-decoration:underline}
 footer .bottom a{color:inherit;text-decoration:underline}
 
-footer .legal{border-top:1px solid rgba(255,255,255,.08);padding:22px 0 4px}
+footer .legal{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;padding-bottom:4px}
 footer .legal p{font-size:13px;line-height:1.6;color:rgba(255,255,255,.55);max-width:900px}
 footer .legal + .bottom{border-top:0;padding-top:10px}
+
+/* iOS Safari hardening */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+.btn-glass{-webkit-backdrop-filter:blur(8px)}
+body{overflow-x:hidden}
+input,select,textarea{-webkit-appearance:none;appearance:none}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235b6678' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:16px;padding-right:40px}
+.bubble{bottom:max(22px,env(safe-area-inset-bottom))}
+@media (max-width:600px){.bubble{bottom:max(10px,env(safe-area-inset-bottom))}}
